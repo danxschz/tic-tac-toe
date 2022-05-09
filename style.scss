@@ -47,12 +47,33 @@ $neutral: rgb(248, 235, 233);
 
 // Header
 header {
-  background: $pink;
   display: grid;
-  place-items: center;
-  padding: 32px;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 64px;
+  background: $pink;
   color: white;
   cursor: default;
+}
+
+// Used to center title
+.hidden {
+  visibility: hidden;
+}
+
+a {
+  color: white;
+}
+
+.fa-github {
+  font-size: 1.9rem;
+  transition: transform 0.3s ease-in-out;
+}
+  
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+  opacity: 1;
 }
 
 
@@ -60,6 +81,7 @@ header {
 main {
   display: grid;
   justify-content: center;
+  justify-items: center;
   align-content: space-around;
   padding: 32px;
   gap: 16px;
@@ -90,12 +112,11 @@ main {
   }
 
   &:active {
-    background: darken($neutral, 6%);
+    background: darken($neutral, 5%);
   }
 }
 
 button {
-  justify-self: center;
   width: 128px;
   padding: 12px;
   border: none;
@@ -106,7 +127,6 @@ button {
 }
 
 .result {
-  justify-self: center;
   color: $pink;
   font-size: 1.4rem;
   font-weight: 600;

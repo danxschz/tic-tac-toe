@@ -40,13 +40,42 @@ button:active {
 }
 
 header {
-  background: #c86a6e;
   display: -ms-grid;
   display: grid;
-  place-items: center;
-  padding: 32px;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 32px 64px;
+  background: #c86a6e;
   color: white;
   cursor: default;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+a {
+  color: white;
+}
+
+.fa-github {
+  font-size: 1.9rem;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  -webkit-transform: rotate(360deg) scale(1.2);
+          transform: rotate(360deg) scale(1.2);
+  opacity: 1;
 }
 
 main {
@@ -55,6 +84,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
   padding: 32px;
@@ -88,12 +118,10 @@ main {
 }
 
 .square_hover:active {
-  background: #f1d6d2;
+  background: #f2d9d6;
 }
 
 button {
-  -ms-grid-column-align: center;
-      justify-self: center;
   width: 128px;
   padding: 12px;
   border: none;
@@ -104,8 +132,6 @@ button {
 }
 
 .result {
-  -ms-grid-column-align: center;
-      justify-self: center;
   color: #c86a6e;
   font-size: 1.4rem;
   font-weight: 600;
