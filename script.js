@@ -54,9 +54,22 @@ const gameFlow = (() => {
     if (playNumber === 9) return 'tie';
   }
 
+  const toggleHoverEffect = (add) => {
+    let squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+      if (add === true) {
+        square.classList.add('square_hover');
+      } else {
+        square.classList.remove('square_hover');
+      }
+    });
+  }
+
   const endGame = (turn) => {
+    toggleHoverEffect();
+
     // Remove event listeners
-    let gameBoardContainer = document.querySelector('.gameboard');
+    let gameBoardContainer = document.querySelector('.game-board');
     let gameBoardNew = gameBoardContainer.cloneNode(true);
     gameBoardContainer.parentNode.replaceChild(gameBoardNew, gameBoardContainer);
 
@@ -79,6 +92,7 @@ const gameFlow = (() => {
     let result = document.querySelector('.result');
     result.textContent = '';
     setClickEvents(turn);
+    toggleHoverEffect(true);
   }
 
   const setRestartButton = () => {
@@ -100,10 +114,8 @@ const gameFlow = (() => {
         playNumber++
         if (checkWin() === true) {
           endGame(turn);
-          setRestartButton();
         } else if (checkWin() === 'tie') {
           endGame('tie');
-          setRestartButton();
         } else {
           turn = (turn === player1) ? player2 : player1;
         }
@@ -114,6 +126,8 @@ const gameFlow = (() => {
   const startButton = document.querySelector('.start');
   startButton.addEventListener('click', () => {
     setClickEvents(turn);
+    toggleHoverEffect(true);
+    setRestartButton();
   });
 })();
 
